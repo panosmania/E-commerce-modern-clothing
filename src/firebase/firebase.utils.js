@@ -13,6 +13,7 @@ const config = {
   measurementId: "G-KYQCDLJXN1"
 };
 
+//const snapShot get data from firestore
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
