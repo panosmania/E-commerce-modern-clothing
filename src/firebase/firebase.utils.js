@@ -10,7 +10,7 @@ const config = {
   storageBucket: "modern-db.appspot.com",
   messagingSenderId: "1093842300820",
   appId: "1:1093842300820:web:8167bcc0cc7b5b0f522981",
-  measurementId: "G-KYQCDLJXN1"
+  measurementId: "G-KYQCDLJXN1",
 };
 
 //const snapShot get data from firestore
@@ -38,7 +38,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createAt,
-        ...additionalData
+        ...additionalData,
       });
     } catch (error) {
       console.log("error creating user", error.message);
@@ -59,7 +59,7 @@ export const addCollectionAndDocuments = async (
   //console.log("yy", collectionRef);
 
   const batch = firestore.batch();
-  objectsToAdd.forEach(obj => {
+  objectsToAdd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
     //console.log(obj);
     //console.log( newDocRef);
@@ -72,15 +72,15 @@ export const addCollectionAndDocuments = async (
 };
 
 //V.163
-export const convertCollectionsSnapshotToMap = collections => {
-  const transformedCollection = collections.docs.map(doc => {
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
     const { title, items } = doc.data();
 
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
-      items
+      items,
     };
   });
 
@@ -91,14 +91,23 @@ export const convertCollectionsSnapshotToMap = collections => {
   }, {});
 };
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 //this give us access to GoogleAuthProvider() from the auth library
 //setCustomParameters- it take a couple custom parameters usin the custom parameters method
 //promt: 'select_account' always trigger the google pop up when ever we use this Goggle auth
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ promt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ promt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
