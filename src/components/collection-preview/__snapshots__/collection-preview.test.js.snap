@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionPreview component should render CollectionItem component 1`] = `
+<div
+  className="collection-preview"
+>
+  <h1
+    className="title"
+    id="test1"
+    onClick={[Function]}
+  >
+    HATS
+  </h1>
+  <div
+    className="preview"
+  />
+</div>
+`;

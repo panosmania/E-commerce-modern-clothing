@@ -25,7 +25,7 @@ const CollectionPage = lazy(() => import("../collection/collection.component"));
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
-const ShopPage = ({
+export const ShopPage = ({
   fetchCollectionsStart,
   match,
   isCollectionFetching,

@@ -7,12 +7,12 @@ import StripeCheckoutButton from "../../components/stripe-button/stripe-button.c
 
 import {
   selectCartItems,
-  selectCartTotal
+  selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
 import "./checkout.styles.scss";
 
-const CheckoutPage = ({ cartItems, total }) => (
+export const CheckoutPage = ({ cartItems, total }) => (
   <div className="checkout-page">
     <div className="checkout-header">
       <div className="header-block">
@@ -31,7 +31,7 @@ const CheckoutPage = ({ cartItems, total }) => (
         <span>Remove</span>
       </div>
     </div>
-    {cartItems.map(cartItem => (
+    {cartItems.map((cartItem) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <div className="total">
@@ -48,7 +48,7 @@ const CheckoutPage = ({ cartItems, total }) => (
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
-  total: selectCartTotal
+  total: selectCartTotal,
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

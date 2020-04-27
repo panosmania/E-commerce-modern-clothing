@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionItem should render CollectionItem component 1`] = `
+<div
+  className="collection-item"
+>
+  <div
+    className="image"
+    style={
+      Object {
+        "backgroundImage": "url(www.testImage.com)",
+      }
+    }
+  />
+  <div
+    className="collection-footer"
+  >
+    <span
+      className="name"
+    >
+      black hat
+    </span>
+    <span
+      className="price"
+    >
+      10
+    </span>
+  </div>
+  <CustomButton
+    id="test"
+    inverted={true}
+    onClick={[Function]}
+  >
+    Add to cart
+  </CustomButton>
+</div>
+`;

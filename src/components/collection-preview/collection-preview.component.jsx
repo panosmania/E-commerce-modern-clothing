@@ -6,9 +6,16 @@ import CollectionItem from "../collection-item/collection-item.component";
 import "./collection-preview.styles.scss";
 
 //v.71,110
-const CollectionPreview = ({ title, items, history, match, routeName }) => (
+export const CollectionPreview = ({
+  title,
+  items,
+  history,
+  match,
+  routeName,
+}) => (
   <div className="collection-preview">
     <h1
+      id="test1"
       className="title"
       onClick={() => history.push(`${match.path}/${routeName}`)}
     >
@@ -17,7 +24,7 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => (
     <div className="preview">
       {items
         .filter((item, idx) => idx < 4)
-        .map(item => (
+        .map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
     </div>

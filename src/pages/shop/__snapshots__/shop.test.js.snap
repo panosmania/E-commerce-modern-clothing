@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShopPage should render ShopPage component 1`] = `
+<div
+  className="shop-page"
+>
+  <Suspense
+    fallback={<Spinner />}
+  >
+    <Route
+      exact={true}
+      path=""
+      render={[Function]}
+    />
+    <Route
+      path="/:collectionId"
+      render={[Function]}
+    />
+  </Suspense>
+</div>
+`;

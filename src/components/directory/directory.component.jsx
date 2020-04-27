@@ -8,7 +8,7 @@ import MenuItem from "../menu-item/menu-item.component";
 
 import "./directory.styles.scss";
 
-const Directory = ({ sections }) => (
+export const Directory = ({ sections }) => (
   <div className="directory-menu">
     {sections.map(({ title, imageUrl, id, size, linkUrl }) => (
       <MenuItem
@@ -23,7 +23,7 @@ const Directory = ({ sections }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
-  sections: selectDirectorySections
+  sections: selectDirectorySections,
 });
 
 export default connect(mapStateToProps)(Directory);
